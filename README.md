@@ -4,7 +4,8 @@ In this project, you'll label the pixels of a road in images using a Fully Convo
 
 ### Architecture
 
-A pre-trained VGG-16 network was converted to a fully convolutional network by converting the final fully connected layer to a 1x1 convolution and setting the depth equal to the number of desired classes (in this case, two: road and not-road). Performance is improved through the use of skip connections, performing 1x1 convolutions on previous VGG layers (in this case, layers 3 and 4) and adding them element-wise to upsampled (through transposed convolution) lower-level layers (i.e. the 1x1-convolved layer 7 is upsampled before being added to the 1x1-convolved layer 4). Each convolution and transpose convolution layer includes a kernel initializer and regularizer
+A pre-trained VGG-16 network was converted to a fully convolutional network by converting the final fully connected layer to a 1x1 convolution and setting the depth equal to the number of desired classes (two classes: road and not-road). Performance is improved through the use of skip connections, performing 1x1 convolutions on previous VGG layers (layers 3 and 4) and adding them element-wise to upsampled lower-level layers. Each convolution and transpose convolution layer includes a kernel initializer and regularizer.
+
 
 ### Optimizer
 
@@ -14,19 +15,19 @@ The loss function for the network is cross-entropy, and an Adam optimizer is use
 
 The hyperparameters used for training are:
 
-  - keep_prob: 0.5
-  - learning_rate: 0.0009
   - epochs: 50
   - batch_size: 5
+  - keep_prob: 0.5
+  - learning_rate: 0.0009
 
 ## Results
 
 Average loss per batch 2 epochs below 0.180
-10 epochs below 0.80
-20: 0.045
-30: 0.040
-40: 0.035
-50: 0.030
+- 10 epochs below 0.80
+- 20: 0.045
+- 30: 0.040
+- 40: 0.035
+- 50: 0.030
 
 ### Samples
 
